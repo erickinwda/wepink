@@ -1,0 +1,437 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Checkout | WePink</title>
+<meta name="description" content="Finalize sua compra WePink com Pix: pagamento 100% seguro, entrega rápida e garantia de 7 dias." />
+<meta name="robots" content="noindex,nofollow" />
+<script src="../loja/anti-scraping.js"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com/" />
+<link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet" />
+<script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+<style type="text/tailwindcss">
+@import "https://teletonpink.store/checkout/tailwindcss";
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-soft: var(--soft);
+  --color-mint: var(--mint);
+  --color-deep: var(--deep);
+  --color-deep-foreground: var(--deep-foreground);
+  --color-green-400: var(--green-400);
+  --color-gold: var(--gold);
+  --color-danger: var(--danger);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --radius-2xl: calc(var(--radius) + 8px);
+  --radius-3xl: calc(var(--radius) + 12px);
+  --font-display: "Plus Jakarta Sans", ui-sans-serif, system-ui;
+  --font-sans: "Inter", ui-sans-serif, system-ui;
+}
+:root {
+  --background: oklch(1 0 0);
+  --foreground: oklch(0.18 0.03 340);
+  --card: oklch(1 0 0);
+  --card-foreground: oklch(0.18 0.03 340);
+  --primary: oklch(0.65 0.3 356);
+  --primary-foreground: oklch(1 0 0);
+  --secondary: oklch(0.95 0.04 350);
+  --secondary-foreground: oklch(0.4 0.16 352);
+  --muted: oklch(0.975 0.014 350);
+  --muted-foreground: oklch(0.52 0.03 340);
+  --accent: oklch(0.95 0.05 350);
+  --accent-foreground: oklch(0.4 0.16 352);
+  --border: oklch(0.93 0.022 350);
+  --input: oklch(0.93 0.022 350);
+  --ring: oklch(0.65 0.3 356);
+  --radius: 1rem;
+  --soft: oklch(0.982 0.011 350);
+  --mint: oklch(0.958 0.038 350);
+  --deep: oklch(0.28 0.12 350);
+  --deep-foreground: oklch(0.99 0 0);
+  --green-400: oklch(0.78 0.2 350);
+  --gold: oklch(0.79 0.15 78);
+  --danger: oklch(0.58 0.21 12);
+  --gradient-cta: #ff0080;
+  --gradient-deep: #ff0080;
+  --shadow-sm: 0 4px 14px oklch(0.5 0.2 350 / 0.08);
+  --shadow-card: 0 14px 36px oklch(0.5 0.2 350 / 0.12);
+  --shadow-cta: 0 12px 30px oklch(0.65 0.3 356 / 0.32);
+}
+@layer base {
+  * { border-color: var(--color-border); }
+  html { scroll-behavior: smooth; }
+  body { font-family: var(--font-sans); line-height: 1.65; background-color: var(--color-background); color: var(--color-foreground); }
+  h1, h2, h3, h4 { font-family: var(--font-display); font-weight: 800; line-height: 1.15; letter-spacing: -0.02em; }
+}
+@utility bg-deep-gradient { background: var(--gradient-deep); }
+@utility bg-cta-gradient { background: var(--gradient-cta); }
+@utility shadow-soft { box-shadow: var(--shadow-sm); }
+@utility shadow-card { box-shadow: var(--shadow-card); }
+@utility shadow-cta { box-shadow: var(--shadow-cta); }
+</style>
+</head>
+<body class="bg-soft">
+<div class="min-h-screen bg-soft flex items-center justify-center p-4">
+  <div class="w-full max-w-md mx-auto">
+    <div class="rounded-3xl border border-border bg-card p-6 shadow-card">
+      
+      <!-- Header -->
+      <header class="border-b-4 border-primary bg-muted rounded-2xl p-4 mb-6 -mx-6 -mt-6">
+        <div class="flex items-center justify-between gap-3">
+          <img id="logo-img" src="#" alt="WePink" class="h-8 w-auto shrink-0 object-contain" />
+          <div class="flex items-center gap-2">
+            <svg width="22" height="22" viewBox="0 0 24 24" class="shrink-0" xmlns="http://www.w3.org/2000/svg">
+              <path d="M12 2 4 5v6c0 5 3.4 8.7 8 11 4.6-2.3 8-6 8-11V5l-8-3Z" fill="var(--primary)" />
+              <path d="M8.4 12.2 11 14.8l4.6-5" stroke="#ffffff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" fill="none" />
+            </svg>
+            <div class="text-right leading-[1.15]">
+              <div class="text-[11px] font-extrabold tracking-wide text-primary uppercase">Pagamento</div>
+              <div class="text-[11px] font-extrabold tracking-wide text-primary uppercase">100% seguro</div>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <!-- Product Card -->
+      <section class="mb-6 rounded-2xl border border-border bg-gradient-to-br from-mint/50 to-soft p-5 shadow-soft">
+        <div class="mb-2 text-[11px] font-extrabold uppercase tracking-wider text-primary">Você está comprando:</div>
+        <div class="flex items-center gap-4">
+          <div class="relative size-24 shrink-0 rounded-2xl bg-white/80 p-2 shadow-sm">
+            <img id="product-img" src="#" alt="" class="w-full h-full rounded-xl object-contain" />
+          </div>
+          <div class="min-w-0 flex-1">
+            <h3 id="product-title" class="text-base leading-tight font-bold text-foreground"></h3>
+            <div class="mt-2 flex flex-wrap items-baseline gap-2">
+              <span id="product-old" class="text-sm text-muted-foreground line-through"></span>
+              <span id="product-price" class="text-2xl font-extrabold text-primary"></span>
+              <span id="product-off" class="rounded bg-mint px-2 py-0.5 text-xs font-bold text-primary"></span>
+            </div>
+          </div>
+        </div>
+
+        <div class="mt-5 rounded-xl border border-border bg-soft p-4">
+          <div class="text-[11px] font-bold uppercase tracking-wide text-muted-foreground">Resumo da compra</div>
+          <div class="mt-3 space-y-2">
+            <div class="flex items-center justify-between gap-3">
+              <span id="summary-title" class="text-sm text-muted-foreground"></span>
+              <span id="summary-price" class="text-base font-semibold text-foreground"></span>
+            </div>
+            <div class="flex items-center justify-between gap-3">
+              <span class="text-sm text-muted-foreground">Frete</span>
+              <span id="summary-ship" class="text-base font-semibold text-green-400">Grátis</span>
+            </div>
+            <div class="border-t border-border pt-3 flex items-center justify-between gap-3">
+              <span class="text-base font-bold text-foreground">Total</span>
+              <span id="summary-total" class="text-2xl font-extrabold text-primary"></span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Form: Name + Email only -->
+      <form id="form" class="space-y-4" novalidate>
+        <div class="space-y-3">
+          <label class="block">
+            <span class="mb-1 block text-xs font-medium text-muted-foreground">Nome completo</span>
+            <input id="nome" type="text" class="fld" placeholder="João da Silva" autocomplete="name" required />
+          </label>
+          <label class="block">
+            <span class="mb-1 block text-xs font-medium text-muted-foreground">E-mail</span>
+            <input id="email" type="email" class="fld" placeholder="voce@email.com" autocomplete="email" inputmode="email" required />
+            <span id="err-email" class="mt-1 block text-[11px] font-medium text-danger"></span>
+          </label>
+        </div>
+
+        <button id="pay-btn" type="submit" class="flex w-full items-center justify-center gap-2 rounded-xl bg-cta-gradient py-4 text-base font-bold text-primary-foreground shadow-cta transition active:scale-[0.99] disabled:opacity-70">
+          <span id="btn-text">Pagar com Pix</span>
+          <svg id="btn-loader" class="hidden h-5 w-5 animate-spin" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="12" cy="12" r="10" stroke-opacity="0.25" />
+            <path d="M12 2a10 10 0 0 1 10 10" stroke-opacity="1" stroke-linecap="round" />
+          </svg>
+        </button>
+
+        <div class="flex items-center justify-center gap-4 pt-2 text-[11px] text-muted-foreground">
+          <span class="flex items-center gap-1"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="11" width="16" height="9" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg> SSL 256 bits</span>
+          <span class="flex items-center gap-1"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 5 5.5v6C5 16.7 8 20 12 21.5c4-1.5 7-4.8 7-10V5.5L12 3Z"/><path d="M9 12.2l2.2 2.2L15.5 10"/></svg> Dados protegidos</span>
+        </div>
+      </form>
+
+      <!-- Pix Result Modal -->
+      <section id="pix-box" class="mt-6 hidden space-y-4">
+        <div class="space-y-4 rounded-2xl border border-border bg-card p-6 text-center shadow-card">
+          <div class="inline-flex items-center gap-2 text-sm font-semibold text-primary">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/>
+              <rect x="3" y="14" width="7" height="7"/><path d="M14 14h3v3h-3zM19 19h2v2h-2zM14 19h2M19 14h2"/>
+            </svg> Escaneie para pagar
+          </div>
+          <div class="mx-auto flex size-56 items-center justify-center overflow-hidden rounded-xl border border-border bg-white">
+            <img id="pix-qr" src="#" alt="QR Code Pix" class="h-full w-full object-contain p-2" />
+          </div>
+          <div>
+            <div class="mb-1 text-xs text-muted-foreground">Ou copie o código Pix (copia e cola):</div>
+            <div class="flex items-stretch gap-2">
+              <input id="pix-code" readonly class="fld font-mono text-[11px]" />
+              <button id="copy-btn" type="button" class="shrink-0 rounded-xl bg-cta-gradient px-4 text-xs font-bold text-primary-foreground transition active:scale-95">Copiar</button>
+            </div>
+          </div>
+          <div id="pix-timer-box" class="flex items-center justify-center gap-2 rounded-xl border border-gold/40 bg-gold/10 px-4 py-2.5 text-sm font-bold text-secondary-foreground">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="shrink-0"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3.5 2"/></svg>
+            Seu Pix expira em <span id="pix-timer" class="tabular-nums">15:00</span>
+          </div>
+          <div class="rounded-xl border border-border bg-soft p-4 text-left">
+            <div class="mb-2 flex items-center gap-1.5 text-xs font-bold text-foreground">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="shrink-0 text-primary"><path d="M12 3 5 5.5v6C5 16.7 8 20 12 21.5c4-1.5 7-4.8 7-10V5.5L12 3Z"/><path d="M9 12.2l2.2 2.2L15.5 10"/></svg>
+              Como pagar em 30 segundos:
+            </div>
+            <ol class="list-inside list-decimal space-y-1.5 text-[12px] text-muted-foreground">
+              <li>Toque em <span class="font-semibold text-foreground">Copiar</span> o código acima</li>
+              <li>Abra o <span class="font-semibold text-foreground">app do seu banco</span></li>
+              <li>Escolha <span class="font-semibold text-foreground">Pix › Pix Copia e Cola</span></li>
+              <li>Cole o código e <span class="font-semibold text-foreground">confirme o pagamento</span></li>
+            </ol>
+          </div>
+          <div id="pix-status" class="flex items-center justify-center gap-2 rounded-xl border border-gold/40 bg-gold/10 px-4 py-3 text-sm font-medium text-secondary-foreground">
+            <span class="size-2 animate-pulse rounded-full bg-gold"></span> Aguardando pagamento...
+          </div>
+          <div class="text-[11px] text-muted-foreground">Assim que o pagamento for confirmado, esta tela atualiza automaticamente.</div>
+        </div>
+      </section>
+
+    </div>
+
+    <!-- Footer -->
+    <p class="mt-6 text-center text-[11px] text-muted-foreground">
+      <b>Garantia de 7 dias.</b> Não gostou? Devolvemos 100% do seu dinheiro.
+    </p>
+  </div>
+</div>
+
+<style type="text/tailwindcss">
+@utility fld {
+  width: 100%;
+  border-radius: 0.75rem;
+  border: 1px solid var(--border);
+  background: var(--background);
+  padding: 0.75rem 0.875rem;
+  font-size: 16px;
+  color: var(--foreground);
+  outline: none;
+}
+</style>
+
+<script src="config.js"></script>
+<script>
+/* Checkout WePink — Modal Simplificado (Nome + Email → Pix) */
+(function () {
+
+  var TRACK_KEYS = ["px","utm_source","utm_medium","utm_campaign","utm_content","utm_term","fbclid","gclid","kclid","src","sck"];
+
+  var brl = function (v) { return "R$ " + v.toFixed(2).replace(".", ","); };
+  var emailValido = function (e) { return /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test((e || "").trim()); };
+
+  var $ = function (id) { return document.getElementById(id); };
+
+  // Persist tracking params
+  (function () {
+    try {
+      var sp = new URLSearchParams(location.search);
+      TRACK_KEYS.forEach(function (k) {
+        var v = sp.get(k);
+        if (v) {
+          try { sessionStorage.setItem(k, v); } catch (e) {}
+          try { localStorage.setItem("_gm_" + k, v); } catch (e) {}
+        }
+      });
+    } catch (e) {}
+  })();
+
+  function getTracking() {
+    var t = {};
+    var sp = new URLSearchParams(location.search);
+    TRACK_KEYS.forEach(function (k) {
+      var v = sp.get(k) || "";
+      if (!v) { try { v = sessionStorage.getItem(k) || ""; } catch (e) {} }
+      if (!v) { try { v = localStorage.getItem("_gm_" + k) || ""; } catch (e) {} }
+      if (v) t[k] = v;
+    });
+    return t;
+  }
+
+  // Kit selection from URL
+  var rawKit = (new URLSearchParams(location.search).get("kit") || "2").replace(/"/g, "");
+  var kitId = KITS[rawKit] ? rawKit : "2";
+  var kit = KITS[kitId];
+
+  // Logo
+  $("logo-img").src = LOGO;
+
+  // Product render
+  $("product-img").src = kit.img;
+  $("product-img").alt = kit.title;
+  $("product-title").textContent = kit.title;
+  $("product-old").textContent = brl(kit.old);
+  $("product-price").textContent = brl(kit.price);
+  $("product-off").textContent = kit.off;
+
+  // Summary
+  $("summary-title").textContent = kit.title + " (KIT)";
+  $("summary-price").textContent = brl(kit.price);
+  $("summary-total").textContent = brl(kit.price);
+  $("summary-ship").textContent = "Grátis";
+
+  // Button text
+  $("btn-text").textContent = "Pagar " + brl(kit.price) + " com Pix";
+
+  var loading = false;
+  var pix = null;
+  var pixStatus = "pending";
+  var pollTimer = null;
+  var pollTries = 0;
+
+  function setLoading(on) {
+    loading = on;
+    $("pay-btn").disabled = on;
+    $("btn-text").classList.toggle("hidden", on);
+    $("btn-loader").classList.toggle("hidden", !on);
+    $("btn-text").textContent = on ? "Gerando Pix..." : "Pagar " + brl(kit.price) + " com Pix";
+  }
+
+  function setErr(id, msg) {
+    $(id).textContent = msg || "";
+  }
+
+  function validate() {
+    var nome = $("nome").value.trim();
+    var email = $("email").value.trim();
+    if (!nome || !email) {
+      alert("Preencha nome e e-mail.");
+      return false;
+    }
+    if (!emailValido(email)) {
+      setErr("err-email", "E-mail inválido. Ex.: nome@email.com");
+      return false;
+    }
+    return true;
+  }
+
+  // Submit → create Pix
+  $("form").addEventListener("submit", function (e) {
+    e.preventDefault();
+    if (!validate()) return;
+    setLoading(true);
+
+    var payload = {
+      kit: kitId,
+      amount: Math.round(kit.price * 100),
+      customer_name: $("nome").value.trim(),
+      customer_email: $("email").value.trim(),
+      tracking_parameters: getTracking()
+    };
+
+    fetch(API + "/create.php", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(payload)
+    })
+    .then(function (r) { return r.json(); })
+    .then(function (data) {
+      if (!data.success) throw new Error(data.error || "Falha ao gerar Pix");
+      pix = data;
+      showPix();
+    })
+    .catch(function (err) {
+      alert("Não foi possível gerar o Pix: " + err.message);
+    })
+    .then(function () { setLoading(false); });
+  });
+
+  function showPix() {
+    $("form").classList.add("hidden");
+    $("pix-box").classList.remove("hidden");
+    $("pix-qr").src = pix.pix_qrcode_image;
+    $("pix-code").value = pix.pix_copy_paste;
+    startTimer();
+    startPolling();
+  }
+
+  function startTimer() {
+    var end = pix.expires_at ? new Date(pix.expires_at).getTime() : Date.now() + 15 * 60 * 1000;
+    var pad = function (n) { return n < 10 ? "0" + n : "" + n; };
+    var id = setInterval(function () {
+      var left = Math.floor((end - Date.now()) / 1000);
+      if (left <= 0) {
+        $("pix-timer").textContent = "00:00";
+        $("pix-timer-box").className = "flex items-center justify-center gap-2 rounded-xl border px-4 py-2.5 text-sm font-bold border-danger/30 bg-danger/10 text-danger";
+        clearInterval(id);
+        return;
+      }
+      $("pix-timer").textContent = pad(Math.floor(left / 60)) + ":" + pad(left % 60);
+    }, 1000);
+  }
+
+  function startPolling() {
+    if (!pix || !pix.transaction_id) return;
+    pollTries = 0;
+    function check() {
+      if (pollTries >= 600) return;
+      pollTries++;
+      fetch(API + "/status.php?external_id=" + encodeURIComponent(pix.external_id || pix.transaction_id) + "&_=" + Date.now(), {
+        cache: "no-store",
+        headers: { "Cache-Control": "no-cache" }
+      })
+      .then(function (r) { return r.json(); })
+      .then(function (s) {
+        if (s.status === "paid") {
+          pixStatus = "paid"; renderStatus(); return;
+        }
+        if (s.status === "expired" || s.status === "refunded") {
+          pixStatus = s.status; renderStatus(); return;
+        }
+        setTimeout(check, 1500);
+      })
+      .catch(function () { setTimeout(check, 1500); });
+    }
+    check();
+  }
+
+  function renderStatus() {
+    var el = $("pix-status");
+    if (pixStatus === "paid") {
+      el.className = "flex items-center justify-center gap-2 rounded-xl border border-primary/30 bg-mint px-4 py-3 text-sm font-bold text-primary";
+      el.innerHTML = '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="shrink-0"><circle cx="12" cy="12" r="9"/><path d="M8 12.3l2.5 2.5L16 9.3"/></svg> Pagamento confirmado! Obrigado.';
+    } else if (pixStatus === "expired" || pixStatus === "refunded") {
+      el.className = "rounded-xl border border-danger/30 bg-danger/10 px-4 py-3 text-center text-sm font-medium text-danger";
+      el.textContent = "A cobrança " + (pixStatus === "expired" ? "expirou" : "foi estornada") + ". Recarregue a página para tentar de novo.";
+    }
+  }
+
+  $("copy-btn").addEventListener("click", function () {
+    var el = $("pix-code");
+    el.select();
+    try { navigator.clipboard.writeText(el.value); }
+    catch (e) { document.execCommand("copy"); }
+    $("copy-btn").textContent = "Copiado!";
+    setTimeout(function () { $("copy-btn").textContent = "Copiar"; }, 2000);
+  });
+
+})();
+</script>
+</body>
+</html>
